@@ -7,30 +7,7 @@ namespace University_System_ERD___Models
 
     
 
-    [Index(nameof(email), IsUnique = true)]
-    public class Instructor
-    {
-        [Key]
-        public int instructorId { get; set; }
-
-        [Required, MaxLength(100)]
-        public string fullName { get; set; }
-
-        [Required, MaxLength(150)]
-        public string email { get; set; }
-
-        [MaxLength(20)]
-        public string? officeNumber { get; set; }
-
-        [Required]
-        public DateTime hireDate { get; set; }
-
-        [Required, Range(0.1,double.MaxValue)]
-        public decimal salary { get; set; }
-
-        [Required, MaxLength(50)]
-        public string academicTitle { get; set; }
-    }
+    
 
     [Index(nameof(departmentName), IsUnique = true)]
     public class Department
