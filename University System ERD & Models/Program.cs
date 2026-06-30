@@ -9,26 +9,7 @@ namespace University_System_ERD___Models
 
     
 
-    [Index(nameof(departmentName), IsUnique = true)]
-    public class Department
-    {
-        [Key]
-        public int departmentId { get; set; }
-
-        [Required, MaxLength(100)]
-        public string departmentName { get; set; }
-
-        [MaxLength(50)]
-        public string? building { get; set; }
-
-        [Required, Range(0,double.MaxValue)]
-        public double budget { get; set; }
-
-        public int? headInstructorId { get; set; }
-
-        [ForeignKey("headInstructorId")]
-        public Instructor? headInstructor { get; set; }
-    }
+    
 
     [Index(nameof(courseCode), IsUnique = true)]
     public class Course
