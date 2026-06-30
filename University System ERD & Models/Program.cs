@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 namespace University_System_ERD___Models
@@ -25,8 +26,8 @@ namespace University_System_ERD___Models
         [Required, Range(2000, 2030)]
         public int enrollmentYear { get; set; }
 
-        [Range(0.0, 4.0)]
-        public decimal gpa { get; set; } = 0.0m;
+        [Range(0.0, 4.0), DefaultValue(0.0)]
+        public decimal gpa { get; set; }
     }
 
     [Index(nameof(email), IsUnique = true)]
@@ -102,6 +103,33 @@ namespace University_System_ERD___Models
 
         [Required, MaxLength(20)]
         public string semesterOffered { get; set; }
+    }
+
+    public class Enrollment
+    {
+        [Key]
+        public int enrollmentId { get; set; }
+
+        [Required]
+        public int studentId { get; set; }
+
+        [ForeignKey("studentId"), Required]
+        public Student student { get; set; }
+
+        [Required]
+        public int courseId { get; set; }
+
+        [ForeignKey("courseId"), Required]
+        public Course course { get; set; }
+
+        [Required]
+        public DateTime enrollmentDate { get; set; }
+
+        [MaxLength(2)]
+        public string finalGrade { get; set; }
+
+        [Required, MaxLength(20), DefaultValue("In Progress")]
+        public string status { get; set; }
     }
 
 
