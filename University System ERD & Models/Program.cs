@@ -3,7 +3,7 @@ namespace University_System_ERD___Models
 {
 
     
-    class Student
+    public class Student
     {
         [Key]
         public int studentId {  get; set; }
@@ -25,6 +25,30 @@ namespace University_System_ERD___Models
 
         [Range(0.0, 4.0)]
         public decimal gpa { get; set; } = 0.0m;
+    }
+
+    public class Instructor
+    {
+        [Key]
+        public int instructorId { get; set; }
+
+        [Required, MaxLength(100)]
+        public string fullName { get; set; }
+
+        [Required, MaxLength(150)]
+        public string email { get; set; }
+
+        [MaxLength(20)]
+        public string? officeNumber { get; set; }
+
+        [Required]
+        public DateTime hireDate { get; set; }
+
+        [Required, Range(0.1,double.MaxValue)]
+        public decimal salary { get; set; }
+
+        [Required, MaxLength(50)]
+        public string academicTitle { get; set; }
     }
 
     internal class Program
