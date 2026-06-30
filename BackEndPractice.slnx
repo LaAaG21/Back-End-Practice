@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="FlightManagementSystem/FlightManagementSystem.csproj" />
+  <Project Path="University System ERD &amp; Models/University System ERD &amp; Models.csproj" Id="ee3f0951-e173-4c28-a451-23a51ef27980" />
+</Solution>
