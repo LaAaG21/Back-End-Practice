@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Codeline\\Desktop\\FlightManagementSystem\\FlightManagementSystem.csproj": {}
+    "C:\\Users\\Codeline\\Desktop\\Back-End-Practice\\FlightManagementSystem\\FlightManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Codeline\\Desktop\\FlightManagementSystem\\FlightManagementSystem.csproj": {
+    "C:\\Users\\Codeline\\Desktop\\Back-End-Practice\\FlightManagementSystem\\FlightManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Codeline\\Desktop\\FlightManagementSystem\\FlightManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Codeline\\Desktop\\Back-End-Practice\\FlightManagementSystem\\FlightManagementSystem.csproj",
         "projectName": "FlightManagementSystem",
-        "projectPath": "C:\\Users\\Codeline\\Desktop\\FlightManagementSystem\\FlightManagementSystem.csproj",
+        "projectPath": "C:\\Users\\Codeline\\Desktop\\Back-End-Practice\\FlightManagementSystem\\FlightManagementSystem.csproj",
         "packagesPath": "C:\\Users\\Codeline\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Codeline\\Desktop\\FlightManagementSystem\\obj\\",
+        "outputPath": "C:\\Users\\Codeline\\Desktop\\Back-End-Practice\\FlightManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
