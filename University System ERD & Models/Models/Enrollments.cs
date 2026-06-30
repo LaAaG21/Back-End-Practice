@@ -9,7 +9,7 @@ namespace University_System_ERD___Models.Models
 {
     public class Enrollment
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int enrollmentId { get; set; }
 
         [Required]
@@ -30,7 +30,7 @@ namespace University_System_ERD___Models.Models
         [MaxLength(2)]
         public string finalGrade { get; set; }
 
-        [Required, MaxLength(20), DefaultValue("In Progress")]
-        public string status { get; set; }
+        [Required, MaxLength(20)]
+        public string status { get; set; } = "In Progress";
     }
 }

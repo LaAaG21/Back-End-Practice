@@ -10,7 +10,7 @@ namespace University_System_ERD___Models.Models
     [Index(nameof(departmentName), IsUnique = true)]
     public class Department
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int departmentId { get; set; }
 
         [Required, MaxLength(100)]
@@ -20,11 +20,13 @@ namespace University_System_ERD___Models.Models
         public string? building { get; set; }
 
         [Required, Range(0, double.MaxValue)]
-        public double budget { get; set; }
+        public decimal budget { get; set; }
 
         public int? headInstructorId { get; set; }
 
         [ForeignKey("headInstructorId")]
         public Instructor? headInstructor { get; set; }
+
+        public ICollection<Course>? courses { get; set; }
     }
 }

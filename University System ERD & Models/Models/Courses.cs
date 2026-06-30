@@ -10,7 +10,7 @@ namespace University_System_ERD___Models.Models
     [Index(nameof(courseCode), IsUnique = true)]
     public class Course
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int courseId { get; set; }
 
         [Required, MaxLength(10)]
@@ -22,17 +22,19 @@ namespace University_System_ERD___Models.Models
         [Required, Range(1, 6)]
         public int creditHours { get; set; }
 
-        public int? departmentId { get; set; }
+        public int departmentId { get; set; }
 
         [ForeignKey("departmentId")]
-        public Department? department { get; set; }
+        public Department department { get; set; }
 
-        public int? headInstructorId { get; set; }
+        public int? instructorId { get; set; }
 
-        [ForeignKey("headInstructorId")]
-        public Instructor? headInstructor { get; set; }
+        [ForeignKey("instructorId")]
+        public Instructor? instructor { get; set; }
 
         [Required, MaxLength(20)]
         public string semesterOffered { get; set; }
+
+        public ICollection<Enrollment>? enrollments { get; set; }
     }
 }
