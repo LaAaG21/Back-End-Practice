@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 namespace University_System_ERD___Models
 {
 
-    
+    [Index(nameof(email), IsUnique = true)]
     public class Student
     {
         [Key]
@@ -27,6 +29,7 @@ namespace University_System_ERD___Models
         public decimal gpa { get; set; } = 0.0m;
     }
 
+    [Index(nameof(email), IsUnique = true)]
     public class Instructor
     {
         [Key]
@@ -50,6 +53,30 @@ namespace University_System_ERD___Models
         [Required, MaxLength(50)]
         public string academicTitle { get; set; }
     }
+
+    [Index(nameof(departmentName), IsUnique = true)]
+    public class Department
+    {
+        [Key]
+        public int departmentId { get; set; }
+
+        [Required, MaxLength(100)]
+        public string departmentName { get; set; }
+
+        [MaxLength(50)]
+        public string? building { get; set; }
+
+        [Required, Range(0,double.MaxValue)]
+        public double budget { get; set; }
+
+        public int? headInstructorId { get; set; }
+
+        [ForeignKey("headInstructorId")]
+        public Instructor? headInstructor { get; set; }
+
+
+    }
+
 
     internal class Program
     {
