@@ -34,6 +34,24 @@ namespace E_Commerce_System_ERD___Models
         public bool isActive { get; set; } = true;
     }
 
+
+
+    [Index(nameof(categoryName), IsUnique = true)]
+    public class Category
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int categoryId { get; set; }
+
+        [Required, MaxLength(100)]
+        public string categoryName { get; set; }
+
+        [MaxLength(500)]
+        public string description { get; set; }
+
+        [MaxLength(300)]
+        public string imageUrl { get; set; }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
