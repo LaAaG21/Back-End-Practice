@@ -32,6 +32,10 @@ namespace E_Commerce_System_ERD___Models
         public DateTime registrationDate { get; set; }
 
         public bool isActive { get; set; } = true;
+
+        public ICollection<User> user { get; set; }
+
+        public ICollection<Review> review { get; set; }
     }
 
 
@@ -49,6 +53,8 @@ namespace E_Commerce_System_ERD___Models
 
         [MaxLength(300)]
         public string? imageUrl { get; set; }
+
+        public ICollection<Category> category { get; set; }
     }
 
 
@@ -81,8 +87,10 @@ namespace E_Commerce_System_ERD___Models
         public DateTime creadeAt { get; set; }
 
         public bool isAvalible { get; set; } = true;
-    }
 
+        public ICollection<Product> product { get; set; }
+    }
+    
 
     public class Order
     {
@@ -132,6 +140,25 @@ namespace E_Commerce_System_ERD___Models
         [Required]
         public DateTime reviewDate { get; set; }
     }
+
+
+    public class OrderItem
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int orderItemId { get; set; }
+
+        [ForeignKey("productId"), Required]
+        public int productId { get; set; }
+        public Product product { get; set; }
+
+        [ForeignKey("orderId"), Required]
+        public int orderId { get; set; }
+        public Order order { get; set; }
+
+        [Required, Range(1,999)]
+        public int quantity { get; set; }
+    }
+
 
     internal class Program
     {
