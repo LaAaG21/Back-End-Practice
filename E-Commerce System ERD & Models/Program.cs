@@ -35,7 +35,6 @@ namespace E_Commerce_System_ERD___Models
     }
 
 
-
     [Index(nameof(categoryName), IsUnique = true)]
     public class Category
     {
@@ -46,10 +45,42 @@ namespace E_Commerce_System_ERD___Models
         public string categoryName { get; set; }
 
         [MaxLength(500)]
-        public string description { get; set; }
+        public string? description { get; set; }
+
+        [MaxLength(300)]
+        public string? imageUrl { get; set; }
+    }
+
+
+    public class Product
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int productId { get; set; }
+
+        [Required, MaxLength(150)]
+        public string productName { get; set; }
+
+        [MaxLength(1000)]
+        public string? description { get; set; }
+
+        [Required, Range(0.1, double.MaxValue)]
+        public decimal? price { get; set; }
+
+        [Required, Range(0, int.MaxValue)]
+        public int? stockQuantity { get; set; }
 
         [MaxLength(300)]
         public string imageUrl { get; set; }
+
+        [Required]
+        public int categoryId { get; set; }
+        [ForeignKey("categoryId"), Required]
+        public Category category { get; set; }
+
+        [Required]
+        public DateTime creadeAt { get; set; }
+
+        public bool isAvalible { get; set; } = true;
     }
 
     internal class Program
