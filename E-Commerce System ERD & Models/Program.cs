@@ -83,6 +83,32 @@ namespace E_Commerce_System_ERD___Models
         public bool isAvalible { get; set; } = true;
     }
 
+
+    public class Order
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int orderId { get; set; }
+
+        [ForeignKey("userId"), Required]
+        public int userId { get; set; }
+        public User user { get; set; }
+
+        [Required]
+        public DateTime orderDate { get; set; }
+
+        [Required, Range(0, double.MaxValue)]
+        public decimal totalAmount { get; set; }
+
+        [Required, MaxLength(30)]
+        public string status { get; set; } = "Pending";
+
+        [Required, MaxLength(300)]
+        public string shippingAddress { get; set; }
+
+        [Required, MaxLength(50)]
+        public string paymentMethod { get; set; }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
