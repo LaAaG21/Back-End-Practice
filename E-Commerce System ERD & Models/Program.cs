@@ -109,6 +109,30 @@ namespace E_Commerce_System_ERD___Models
         public string paymentMethod { get; set; }
     }
 
+
+    public class Review
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int reviewId { get; set; }
+
+        [ForeignKey("userId"), Required]
+        public int userId { get; set; }
+        public User user { get; set; }
+
+        [ForeignKey("productId"), Required]
+        public int productId { get; set; }
+        public Product product { get; set; }
+
+        [Required, Range(1,5)]
+        public int rating { get; set; }
+
+        [MaxLength(1000)]
+        public string? comment { get; set; }
+
+        [Required]
+        public DateTime reviewDate { get; set; }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
